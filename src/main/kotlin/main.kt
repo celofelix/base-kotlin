@@ -2,10 +2,10 @@ fun main() {
 
     println("Bem vindo ao Bytebank")
 
-    val contaMarcelo = Conta("Marcelo", 1000)
+    val contaMarcelo = Conta(titular = "Marcelo",numero =  1000)
     contaMarcelo.deposita(2000.0)
 
-    val contaFran = Conta("Fran", 1001)
+    val contaFran = Conta(numero = 1002, titular = "Fran")
     contaFran.deposita(1000.0)
 
     println("<-------------------->")
@@ -35,7 +35,7 @@ fun main() {
     contaFran.saca(50.0)
     println("Novo saldo após o saque ${contaFran.saldo}")
     println("Transferindo valor da conta da Fran para o Marcelo...")
-    if (contaFran.transafere(5000.0, contaMarcelo)) {
+    if (contaFran.transafere(contaDestino = contaMarcelo, valor = 100.0)) {
         println("Transferência realizada com sucesso")
     } else {
         println("Não foi possível transferir o valor, saldo insuficiente")
@@ -46,7 +46,7 @@ fun main() {
 
 }
 
-class Conta(var titular: String, var numero: Int) {
+class Conta(var titular: String, val numero: Int) {
     var saldo = 1.0
         private set
 
