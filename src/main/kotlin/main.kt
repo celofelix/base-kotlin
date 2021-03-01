@@ -2,61 +2,64 @@ fun main() {
 
     println("Bem vindo ao Bytebank")
 
-    val contaMarcelo = Conta()
-    contaMarcelo.titular = "Marcelo"
-    contaMarcelo.numero = 1000
-    contaMarcelo.setSaldo(2000.0)
+    val contaMarcelo = Conta("Marcelo", 1000)
+    contaMarcelo.deposita(2000.0)
 
-    val contaFran = Conta()
-    contaFran.titular = "Fran"
-    contaFran.numero = 1001
-    contaFran.setSaldo(500.0)
+    val contaFran = Conta("Fran", 1001)
+    contaFran.deposita(1000.0)
 
-//    println("<-------------------->")
-//    println(contaMarcelo.titular)
-//    println(contaMarcelo.numero)
-//    println(contaMarcelo.saldo)
-//
-//    println("Depositando na conta do Marcelo...")
-//    contaMarcelo.deposita(50.0)
-//    println("Novo saldo após o depósito ${contaMarcelo.saldo}")
-//    println("Sacando na conta do Marcelo...")
-//    contaMarcelo.saca(50.0)
-//    println("Novo saldo após o saque ${contaMarcelo.saldo}")
-//    println("Sacando na conta do Marcelo...")
-//    contaMarcelo.saca(4000.0)
-//    println("Novo saldo após o saque ${contaMarcelo.saldo}")
-//
-//    println("<-------------------->")
-//    println(contaFran.titular)
-//    println(contaFran.numero)
-//    println(contaFran.saldo)
-//
-//    println("Depositando na conta da Fran...")
-//    contaFran.deposita(50.0)
-//    println("Novo saldo após o depósito ${contaFran.saldo}")
-//    println("Sacando na conta da Fran...")
-//    contaFran.saca(50.0)
-//    println("Novo saldo após o saque ${contaFran.saldo}")
-//    println("Transferindo valor da conta da Fran para o Marcelo...")
-//    if(contaFran.transafere(5000.0, contaMarcelo)) {
-//        println("Transferência realizada com sucesso")
-//    } else {
-//        println("Não foi possível transferir o valor, saldo insuficiente")
-//    }
-//
-//    println("Novo saldo conta Fran ${contaFran.getSaldo()}")
-//    println("Novo saldo conta Marcelo ${contaMarcelo.getSaldo()}")
+    println("<-------------------->")
+    println(contaMarcelo.titular)
+    println(contaMarcelo.numero)
+    println(contaMarcelo.saldo)
+
+    println("Depositando na conta do Marcelo...")
+    contaMarcelo.deposita(50.0)
+    println("Novo saldo após o depósito ${contaMarcelo.saldo}")
+    println("Sacando na conta do Marcelo...")
+    contaMarcelo.saca(50.0)
+    println("Novo saldo após o saque ${contaMarcelo.saldo}")
+    println("Sacando na conta do Marcelo...")
+    contaMarcelo.saca(4000.0)
+    println("Novo saldo após o saque ${contaMarcelo.saldo}")
+
+    println("<-------------------->")
+    println(contaFran.titular)
+    println(contaFran.numero)
+    println(contaFran.saldo)
+
+    println("Depositando na conta da Fran...")
+    contaFran.deposita(50.0)
+    println("Novo saldo após o depósito ${contaFran.saldo}")
+    println("Sacando na conta da Fran...")
+    contaFran.saca(50.0)
+    println("Novo saldo após o saque ${contaFran.saldo}")
+    println("Transferindo valor da conta da Fran para o Marcelo...")
+    if (contaFran.transafere(5000.0, contaMarcelo)) {
+        println("Transferência realizada com sucesso")
+    } else {
+        println("Não foi possível transferir o valor, saldo insuficiente")
+    }
+
+    println("Novo saldo conta Fran ${contaFran.saldo}")
+    println("Novo saldo conta Marcelo ${contaMarcelo.saldo}")
 
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
-    private var saldo = 0.0
+class Conta(var titular: String, var numero: Int) {
+    var saldo = 1.0
+        private set
+
+//    constructor(titular: String, numero: Int) {
+//        this.titular = titular
+//        this.numero = numero
+//    }
+
 
     fun deposita(valor: Double) {
-        this.saldo += valor
+        if (valor > 0) {
+            this.saldo += valor
+        }
     }
 
     fun saca(valor: Double) {
@@ -74,15 +77,15 @@ class Conta {
         return false
     }
 
-    fun getSaldo(): Double {
-        return saldo
-    }
-
-    fun setSaldo(valor: Double) {
-        if(valor > 0) {
-            this.saldo = valor
-        }
-    }
+//    fun getSaldo(): Double {
+//        return saldo
+//    }
+//
+//    fun setSaldo(valor: Double) {
+//        if (valor > 0) {
+//            this.saldo = valor
+//        }
+//    }
 }
 
 fun testaCopiasEReferencias() {
@@ -93,10 +96,8 @@ fun testaCopiasEReferencias() {
     println("numeroX $numeroX")
     println("numeroY $numeroY")
 
-    val contaJoao = Conta()
-    contaJoao.titular = "João"
-    val contaMaria = Conta()
-    contaMaria.titular = "Maria"
+    val contaJoao = Conta("João", 1002)
+    val contaMaria = Conta("Maria", 1003)
 
     println("Conta João: ${contaJoao.titular}")
     println("Conta Maria: ${contaMaria.titular}")
