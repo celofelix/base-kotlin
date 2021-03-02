@@ -1,4 +1,4 @@
-open class Funcionario(
+abstract class Funcionario(
     val nome: String,
     val CPF: String,
     val salario: Double
