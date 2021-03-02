@@ -1,5 +1,7 @@
 fun main() {
 
+    testaAutenticacao()
+
 }
 
 
