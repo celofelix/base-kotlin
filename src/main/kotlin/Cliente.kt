@@ -3,6 +3,7 @@ class Cliente(
     val CPF: String,
     val senha: Int
 ) : Autenticavel {
+
     override fun autentica(senha: Int): Boolean {
         if(this.senha == senha) {
             return true

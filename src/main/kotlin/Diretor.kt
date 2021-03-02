@@ -10,18 +10,10 @@ class Diretor(
     salario = salario,
     senha = senha
 
-), Autenticavel {
+) {
 
     override val bonificacao: Double
         get() {
             return plr + salario
         }
-
-    override fun autentica(senha: Int): Boolean {
-        if (this.senha == senha) {
-            return true
-        }
-        return false
-    }
-
 }
