@@ -50,4 +50,11 @@ fun main() {
     } else {
         println("Não foi possível autenticar")
     }
+
+    val calculadora = CalculadoraBonificacao()
+    calculadora.registra(marcelo)
+    calculadora.registra(fran)
+    calculadora.registra(gui)
+
+    println("Total de bonificação: ${calculadora.total}")
 }
