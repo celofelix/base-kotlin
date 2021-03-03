@@ -1,6 +1,4 @@
-package modelos
-
-import modelos.Autenticavel
+package br.com.alura.bytebank.modelos
 
 class Cliente(
     val nome: String,

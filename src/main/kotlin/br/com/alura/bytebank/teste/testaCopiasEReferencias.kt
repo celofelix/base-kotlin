@@ -1,5 +1,5 @@
-import modelos.ContaCorrente
-import modelos.ContaPoupanca
+import br.com.alura.bytebank.modelos.ContaCorrente
+import br.com.alura.bytebank.modelos.ContaPoupanca
 
 fun testaCopiasEReferencias() {
     val numeroX = 10
@@ -12,6 +12,6 @@ fun testaCopiasEReferencias() {
     val contaJoao = ContaCorrente("João", 1002)
     val contaMaria = ContaPoupanca("Maria", 1003)
 
-    println("modelos.Conta João: ${contaJoao.titular}")
-    println("modelos.Conta Maria: ${contaMaria.titular}")
+    println("br.com.alura.bytebank.modelos.Conta João: ${contaJoao.titular}")
+    println("br.com.alura.bytebank.modelos.Conta Maria: ${contaMaria.titular}")
 }

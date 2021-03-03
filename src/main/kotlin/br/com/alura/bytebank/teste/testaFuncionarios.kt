@@ -1,7 +1,7 @@
-import modelos.Analista
-import modelos.CalculadoraBonificacao
-import modelos.Diretor
-import modelos.Gerente
+import br.com.alura.bytebank.modelos.Analista
+import br.com.alura.bytebank.modelos.CalculadoraBonificacao
+import br.com.alura.bytebank.modelos.Diretor
+import br.com.alura.bytebank.modelos.Gerente
 
 fun testaFuncionarios() {
     val marcelo = Analista(

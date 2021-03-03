@@ -1,6 +1,4 @@
-package modelos
-
-import modelos.Conta
+package br.com.alura.bytebank.modelos
 
 class ContaPoupanca(
     titular: String,
