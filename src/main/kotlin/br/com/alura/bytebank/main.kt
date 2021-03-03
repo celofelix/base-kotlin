@@ -1,15 +1,9 @@
-import br.com.alura.bytebank.modelos.*
-
+import br.com.alura.bytebank.modelos.Cliente
+import br.com.alura.bytebank.modelos.Conta
+import br.com.alura.bytebank.modelos.ContaCorrente
+import br.com.alura.bytebank.modelos.ContaPoupanca
 
 fun main() {
-
-    val fran = object : Autenticavel {
-        val nome = "Fran"
-        val cpf = "123.456.789-00"
-        val senha = 123
-
-        override fun autentica (senha: Int) = this.senha == senha
-    }
 
     val alex = Cliente(nome = "Alex", CPF = "", senha = 1)
     val contaPoupanca = ContaPoupanca(titular = alex, numero = 1)
@@ -17,14 +11,11 @@ fun main() {
 
     testaContasDiferentes()
 
-    val sistemaInterno = SistemaInterno()
-    sistemaInterno.entra(fran, 123)
-    println("Object expression ${fran.nome}")
-    println("Total de contas: ${totalContas}")
-
-
+    println("Total de contas: ${Conta.total}")
 
 }
+
+
 
 
 
