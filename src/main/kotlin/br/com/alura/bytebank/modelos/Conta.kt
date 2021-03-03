@@ -1,7 +1,7 @@
 package br.com.alura.bytebank.modelos
 
 abstract class Conta(
-    var titular: String,
+    val titular: Cliente,
     val numero: Int
 ) {
 
