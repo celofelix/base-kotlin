@@ -1,3 +1,4 @@
+import br.com.alura.bytebank.exceptions.FalhaAutenticacaoException
 import br.com.alura.bytebank.exceptions.SaldoInsuficienteException
 import br.com.alura.bytebank.modelos.Cliente
 import br.com.alura.bytebank.modelos.ContaCorrente
@@ -5,11 +6,11 @@ import br.com.alura.bytebank.modelos.ContaPoupanca
 
 fun testaComportamentosConta() {
 
-    val marcelo = Cliente(nome = "Marcelo", CPF = "", senha = 1)
+    val marcelo = Cliente(nome = "Marcelo", CPF = "", senha = 123)
     val contaMarcelo = ContaCorrente(titular = marcelo, numero = 1000)
     contaMarcelo.deposita(2000.0)
 
-    val fran = Cliente(nome = "Fran", CPF = "", senha = 1)
+    val fran = Cliente(nome = "Fran", CPF = "", senha = 123)
     val contaFran = ContaPoupanca(numero = 1002, titular = fran)
     contaFran.deposita(1000.0)
 
@@ -45,9 +46,13 @@ fun testaComportamentosConta() {
     println("Transferindo valor da conta da Fran para o Marcelo...")
 
     try {
-    contaFran.transafere(contaDestino = contaMarcelo, valor = 5000.0)
+    contaFran.transafere(contaDestino = contaMarcelo, valor = 500.0, senha = 123)
         println("Transferência realizada com sucesso")
     } catch (e: SaldoInsuficienteException) {
+        println("Falha na transferência")
+        println(e.message)
+        e.printStackTrace()
+    } catch (e: FalhaAutenticacaoException) {
         println("Falha na transferência")
         println(e.message)
         e.printStackTrace()
