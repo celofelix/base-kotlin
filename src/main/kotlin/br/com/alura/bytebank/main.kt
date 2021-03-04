@@ -4,28 +4,11 @@ import java.lang.NumberFormatException
 fun main() {
 
     println("início main")
-    val entrada: String = "1.0"
-    val valorRecebido: Double? = try {
-        entrada.toDouble()
-    } catch (e: NumberFormatException) {
-        null
-    }
-
-    val valorComTaxa: Double? = if (valorRecebido != null) {
-        valorRecebido + 0.1
-    } else {
-        null
-    }
-
-    if (valorComTaxa != null) {
-        println("Valor recebido $valorComTaxa")
-    } else {
-        println("Valor informado inválido")
-    }
 
     funcao1()
     println("fim main")
 }
+
 
 fun funcao1() {
     println("início funcao1")
