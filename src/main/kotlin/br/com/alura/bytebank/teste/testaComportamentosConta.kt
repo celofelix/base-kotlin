@@ -46,9 +46,10 @@ fun testaComportamentosConta() {
     println("Transferindo valor da conta da Fran para o Marcelo...")
 
     try {
-    contaFran.transafere(contaDestino = contaMarcelo, valor = 500.0, senha = 123)
+    contaFran.transafere(contaDestino = contaMarcelo, valor = 500.0, senha = 124)
         println("Transferência realizada com sucesso")
-    } catch (e: SaldoInsuficienteException) {
+    }
+    catch (e: SaldoInsuficienteException) {
         println("Falha na transferência")
         println(e.message)
         e.printStackTrace()
@@ -56,8 +57,10 @@ fun testaComportamentosConta() {
         println("Falha na transferência")
         println(e.message)
         e.printStackTrace()
+    } catch (e: Exception) {
+        println("Erro inesperado")
+        e.printStackTrace()
     }
-
 
     println("Novo saldo conta Fran ${contaFran.saldo}")
     println("Novo saldo conta Marcelo ${contaMarcelo.saldo}")
