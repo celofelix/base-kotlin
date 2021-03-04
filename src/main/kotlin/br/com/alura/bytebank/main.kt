@@ -1,14 +1,11 @@
-import br.com.alura.bytebank.modelos.Endereco
-import java.lang.NumberFormatException
+import br.com.alura.bytebank.exceptions.SaldoInsuficienteException
 
 fun main() {
 
     println("início main")
-
     funcao1()
     println("fim main")
 }
-
 
 fun funcao1() {
     println("início funcao1")
@@ -28,11 +25,13 @@ fun funcao2() {
         println(i)
 
         val endereco = Any()
-        endereco as Endereco
+        throw SaldoInsuficienteException()
     }
     println("fim funcao2")
-
 }
+
+
+
 
 
 
