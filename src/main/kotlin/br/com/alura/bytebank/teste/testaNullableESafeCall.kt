@@ -11,7 +11,7 @@ fun testaNullableESafeCall() {
     enderecoNulo.let {
         println(it?.logradouro?.length)
         val tamanhoComplemento: Int = it?.complemento?.length
-                ?: throw IllegalStateException("Complemento não deve ser preenchido")
+                ?: throw IllegalStateException("Complemento deve ser preenchido")
         println(tamanhoComplemento)
     }
 
