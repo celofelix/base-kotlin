@@ -36,7 +36,8 @@ abstract class Conta(
     fun transafere(valor: Double, contaDestino: Conta) {
 
         if (saldo < valor) {
-            throw SaldoInsuficienteException()
+            throw SaldoInsuficienteException(mensagem = "O saldo é insuficente para o valor de tranferência. " +
+                    "Saldo atual: $saldo -> Valor de transferência $valor")
         }
         this.saldo -= valor
         contaDestino.deposita(valor)
