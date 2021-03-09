@@ -1,26 +1,27 @@
-import br.com.alura.bytebank.teste.testaNullableESafeCall
-
 fun main() {
 
-    val minhaFuncaoLambda: () -> Unit = {
-        println("Executa como lambda")
+    val minhaFuncaoLambda: (Int, Int) -> Int = {a, b ->
+        a + b
     }
-    println("Função Lambda: ${minhaFuncaoLambda()}")
+    println("Executando Função Lambda: ${minhaFuncaoLambda(5, 5)}")
 
-    val minhaFuncaoAnonima: () -> Unit = fun() {
-        println("Excuta Função anonima")
+    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a, b) : Int {
+        return a + b
     }
-    println("Função anonima: ${minhaFuncaoAnonima()}")
+    println("Função anonima: ${minhaFuncaoAnonima(5, 5)}")
+
+    testaFuncaoClasse()
 }
 
 fun testaFuncaoClasse() {
-    val minhaFuncaoClasse: () -> Unit = Teste()
-    println(minhaFuncaoClasse())
+    val minhaFuncaoClasse: (Int, Int) -> Int = Teste()
+    println("Executa teste Função Classe: ${minhaFuncaoClasse(5, 5)}")
 }
 
 fun testaFuncaoReferencia() {
     val adicao: (Int, Int) -> Int = ::soma
     println(adicao)
+
     val total = adicao(3, 5)
     println(total)
 
@@ -34,9 +35,9 @@ fun teste() {
 
 fun soma(a: Int, b: Int): Int = a + b
 
-class Teste: () -> Unit {
-    override fun invoke() {
-        println("Executa invoke da classe Teste")
+class Teste : (Int, Int) -> Int {
+    override fun invoke(valor1: Int, valor2: Int) : Int {
+        return valor1 + valor2
     }
 
 }
