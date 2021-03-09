@@ -1,4 +1,6 @@
+import br.com.alura.bytebank.modelos.Autenticavel
 import br.com.alura.bytebank.modelos.Endereco
+import br.com.alura.bytebank.modelos.SistemaInterno
 import br.com.alura.bytebank.teste.testaFuncaoAnonima
 import br.com.alura.bytebank.teste.testaFuncaoLambda
 
@@ -16,10 +18,32 @@ fun main() {
         Endereco(complemento = "Casa"),
         Endereco(),
         Endereco(complemento = "Apartamento")
-    ).filter { endereco ->  endereco.complemento.isNotEmpty()}
-        .let (::println)
+    )
+        .filter { endereco -> endereco.complemento.isNotEmpty() }
+        .let(::println)
+
+    soma(5, 5, resultado = {resultado ->
+        println(resultado)
+    })
+
+    val autenticavel = object : Autenticavel {
+        val senha = 123
+        override fun autentica(senha: Int): Boolean = this.senha == senha
+    }
+
+    SistemaInterno().entra(autenticavel, 123, autenticado = {
+        println("Realizar pagamento")
+    })
 
 }
+
+fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
+    println("Somando...")
+    resultado(a + b)
+    println("Soma efetuada")
+}
+
+
 
 
 
