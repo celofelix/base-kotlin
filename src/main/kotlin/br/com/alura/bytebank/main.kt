@@ -9,11 +9,9 @@ fun main() {
 //    println(enderecoEmMaiusculo)
 
     Endereco(logradouro = "rua vergueiro", numero = 3185)
-        .apply {
+        .run {
             "$logradouro, $numero".toUpperCase()
         }.let(::println)
-
-    println()
 
     listOf(
         Endereco(complemento = "Casa"),
@@ -35,7 +33,6 @@ fun main() {
     SistemaInterno().entra(autenticavel, 123, autenticado = {
         println("Realizar pagamento")
     })
-
 }
 
 fun soma(a: Int, b: Int, resultado: (Int) -> Unit) {
