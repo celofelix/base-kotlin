@@ -1,16 +1,32 @@
 fun main() {
 
-    val minhaFuncaoLambda: (Int, Int) -> Int = {a, b ->
+    val minhaFuncaoLambda: (Int, Int) -> Int = { a, b ->
         a + b
     }
     println("Executando Função Lambda: ${minhaFuncaoLambda(5, 5)}")
 
-    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a, b) : Int {
+    val minhaFuncaoAnonima: (Int, Int) -> Int = fun(a, b): Int {
         return a + b
     }
     println("Função anonima: ${minhaFuncaoAnonima(5, 5)}")
 
-    testaFuncaoClasse()
+    val calculaBonificacao: (salario: Double) -> Double = lambda@{ salario ->
+        if (salario > 1000.0) {
+            return@lambda salario + 50.0
+        }
+        return@lambda salario + 100.0
+    }
+
+    println("Função Lambda com multiplos retornos: ${calculaBonificacao(1500.0)}")
+
+    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun(salario): Double {
+        if(salario > 1000.0) {
+            return salario + 50.0
+        }
+        return salario + 100.0
+    }
+
+    println("Função anônima com multiplos retornos: ${calculaBonificacaoAnonima(1500.0)}")
 }
 
 fun testaFuncaoClasse() {
@@ -36,7 +52,7 @@ fun teste() {
 fun soma(a: Int, b: Int): Int = a + b
 
 class Teste : (Int, Int) -> Int {
-    override fun invoke(valor1: Int, valor2: Int) : Int {
+    override fun invoke(valor1: Int, valor2: Int): Int {
         return valor1 + valor2
     }
 
