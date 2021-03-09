@@ -1,8 +1,6 @@
 import br.com.alura.bytebank.modelos.Autenticavel
 import br.com.alura.bytebank.modelos.Endereco
 import br.com.alura.bytebank.modelos.SistemaInterno
-import br.com.alura.bytebank.teste.testaFuncaoAnonima
-import br.com.alura.bytebank.teste.testaFuncaoLambda
 
 fun main() {
 
@@ -10,9 +8,12 @@ fun main() {
 //    val enderecoEmMaiusculo = "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
 //    println(enderecoEmMaiusculo)
 
-    Endereco(logradouro = "rua vergueiro", numero = 3185).let { endereco ->
-        "${endereco.logradouro}, ${endereco.numero}".toUpperCase()
-    }.let(::println)
+    Endereco(logradouro = "rua vergueiro", numero = 3185)
+        .apply {
+            "$logradouro, $numero".toUpperCase()
+        }.let(::println)
+
+    println()
 
     listOf(
         Endereco(complemento = "Casa"),
@@ -22,7 +23,7 @@ fun main() {
         .filter { endereco -> endereco.complemento.isNotEmpty() }
         .let(::println)
 
-    soma(5, 5, resultado = {resultado ->
+    soma(5, 5, resultado = { resultado ->
         println(resultado)
     })
 
