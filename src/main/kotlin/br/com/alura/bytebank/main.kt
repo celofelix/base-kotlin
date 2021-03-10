@@ -1,10 +1,11 @@
 import br.com.alura.bytebank.modelos.Cliente
 import br.com.alura.bytebank.modelos.ContaPoupanca
 import br.com.alura.bytebank.modelos.Endereco
+import br.com.alura.bytebank.teste.testaHighOrderFunction
 
 fun main() {
 
-    testaFuncaoRun()
+    testaHighOrderFunction()
 
 }
 
